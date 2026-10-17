@@ -1,0 +1,18 @@
+# The analysis engine needs only the Python standard library (3.10+).
+# Everything below is optional and switches on one feature.
+
+# Interactive UI:  python code_review_assistant.py ui
+gradio>=4.44.0
+
+# Local model backend:  --llm hf --model Qwen/Qwen2.5-Coder-7B-Instruct --quantize 4bit
+# (not needed for --llm ollama or --llm openai, which talk to a local server over HTTP)
+transformers>=4.44.0
+torch>=2.3.0
+accelerate>=0.33.0
+bitsandbytes>=0.43.0      # only for --quantize 4bit, needs a CUDA GPU
+
+# External analysers merged in with --external-tools.
+# Both run as separate processes and are never imported.
+ruff>=0.6.0
+bandit>=1.7.9
+# pylint>=3.2.0           # opt-in with --tools pylint; GPL, so kept as a subprocess
