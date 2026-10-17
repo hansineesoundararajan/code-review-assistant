@@ -1,0 +1,41 @@
+name: Code review
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Self-test
+        run: python code_review_assistant.py selftest
+
+      - name: Evaluate against the labelled corpus
+        run: python code_review_assistant.py eval
+
+      # The analyser has no dependencies, so there is nothing to install
+      # before this step.
+      - name: Review the source
+        run: |
+          python code_review_assistant.py review code_review_assistant.py \
+            --format sarif -o results.sarif
+
+      - name: Upload to code scanning
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results.sarif
+
+      - name: Fail on serious findings
+        run: python code_review_assistant.py review code_review_assistant.py --fail-on high
