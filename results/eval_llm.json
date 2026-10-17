@@ -1,0 +1,1954 @@
+{
+  "backend": "hf:Qwen/Qwen2.5-Coder-3B-Instruct",
+  "cases": 40,
+  "crashes": 0,
+  "tolerance_lines": 1,
+  "workers": 2,
+  "overall": {
+    "precision": 1.0,
+    "recall": 0.778,
+    "f1": 0.875,
+    "tp": 35,
+    "fp": 0,
+    "fn": 10
+  },
+  "per_category": {
+    "bug": {
+      "precision": 1.0,
+      "recall": 0.565,
+      "f1": 0.722,
+      "tp": 13,
+      "fp": 0,
+      "fn": 10
+    },
+    "security": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 9,
+      "fp": 0,
+      "fn": 0
+    },
+    "style": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 8,
+      "fp": 0,
+      "fn": 0
+    },
+    "optimization": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 5,
+      "fp": 0,
+      "fn": 0
+    }
+  },
+  "subsets": {
+    "static_visible": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 35,
+      "fp": 0,
+      "fn": 0
+    },
+    "static_blind": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 10
+    }
+  },
+  "llm": {
+    "static_findings": 35,
+    "enriched": 32,
+    "specific": 25,
+    "added": 0,
+    "added_wrong": 0,
+    "misdiagnosed": 0
+  },
+  "confidence_sweep": [
+    {
+      "threshold": 0.0,
+      "kept": 0,
+      "correct": 0,
+      "precision": null,
+      "blind_recall": 0.0
+    },
+    {
+      "threshold": 0.3,
+      "kept": 0,
+      "correct": 0,
+      "precision": null,
+      "blind_recall": 0.0
+    },
+    {
+      "threshold": 0.5,
+      "kept": 0,
+      "correct": 0,
+      "precision": null,
+      "blind_recall": 0.0
+    },
+    {
+      "threshold": 0.6,
+      "kept": 0,
+      "correct": 0,
+      "precision": null,
+      "blind_recall": 0.0
+    },
+    {
+      "threshold": 0.7,
+      "kept": 0,
+      "correct": 0,
+      "precision": null,
+      "blind_recall": 0.0
+    },
+    {
+      "threshold": 0.8,
+      "kept": 0,
+      "correct": 0,
+      "precision": null,
+      "blind_recall": 0.0
+    },
+    {
+      "threshold": 0.9,
+      "kept": 0,
+      "correct": 0,
+      "precision": null,
+      "blind_recall": 0.0
+    }
+  ],
+  "latency": {
+    "mean_seconds": 4.3636,
+    "median_seconds": 4.4257,
+    "p95_seconds": 10.1823,
+    "max_seconds": 12.6205,
+    "total_seconds": 174.543,
+    "lines_per_second": 2.5,
+    "wall_seconds": 106.2
+  },
+  "per_case": [
+    {
+      "name": "mutable_default",
+      "kind": "static",
+      "note": "classic shared-state bug",
+      "expected": 2,
+      "predicted": 2,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 12,
+      "seconds": 10.1823,
+      "static_found": 2,
+      "enriched": 2,
+      "specific": 2,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "swallowed_exception",
+      "kind": "static",
+      "note": "error handling",
+      "expected": 1,
+      "predicted": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 13,
+      "seconds": 6.2205,
+      "static_found": 1,
+      "enriched": 1,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "sql_injection",
+      "kind": "static",
+      "note": "injection via f-string",
+      "expected": 2,
+      "predicted": 2,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 15,
+      "seconds": 7.1556,
+      "static_found": 2,
+      "enriched": 2,
+      "specific": 1,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "hardcoded_secret",
+      "kind": "static",
+      "note": "credential in source",
+      "expected": 2,
+      "predicted": 2,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 10,
+      "seconds": 9.2552,
+      "static_found": 2,
+      "enriched": 2,
+      "specific": 2,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "shell_and_eval",
+      "kind": "static",
+      "note": "command execution",
+      "expected": 3,
+      "predicted": 3,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 19,
+      "seconds": 12.6205,
+      "static_found": 3,
+      "enriched": 3,
+      "specific": 3,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "pickle_and_yaml",
+      "kind": "static",
+      "note": "deserialisation",
+      "expected": 2,
+      "predicted": 2,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 15,
+      "seconds": 7.6215,
+      "static_found": 2,
+      "enriched": 2,
+      "specific": 2,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "string_concat_loop",
+      "kind": "static",
+      "note": "quadratic string building",
+      "expected": 1,
+      "predicted": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 10,
+      "seconds": 6.3979,
+      "static_found": 1,
+      "enriched": 1,
+      "specific": 1,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "range_len",
+      "kind": "static",
+      "note": "indexing instead of enumerate",
+      "expected": 1,
+      "predicted": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 10,
+      "seconds": 5.0179,
+      "static_found": 1,
+      "enriched": 1,
+      "specific": 1,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "redundant_keys",
+      "kind": "static",
+      "note": "iteration and membership",
+      "expected": 2,
+      "predicted": 2,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 15,
+      "seconds": 10.9326,
+      "static_found": 2,
+      "enriched": 0,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": [
+        "Could not parse model output for lines 1-15; static findings kept as-is"
+      ]
+    },
+    {
+      "name": "comprehension_in_sum",
+      "kind": "static",
+      "note": "list built only to be consumed",
+      "expected": 1,
+      "predicted": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 7,
+      "seconds": 4.2216,
+      "static_found": 1,
+      "enriched": 1,
+      "specific": 1,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "style_naming",
+      "kind": "static",
+      "note": "PEP 8 naming",
+      "expected": 2,
+      "predicted": 2,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 14,
+      "seconds": 5.933,
+      "static_found": 2,
+      "enriched": 2,
+      "specific": 1,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "style_wildcard_and_lambda",
+      "kind": "static",
+      "note": "imports and lambdas",
+      "expected": 2,
+      "predicted": 2,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 10,
+      "seconds": 8.8011,
+      "static_found": 2,
+      "enriched": 2,
+      "specific": 2,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "style_long_line",
+      "kind": "static",
+      "note": "line length",
+      "expected": 1,
+      "predicted": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 7,
+      "seconds": 4.0788,
+      "static_found": 1,
+      "enriched": 1,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "style_shadow_builtin",
+      "kind": "static",
+      "note": "shadowing",
+      "expected": 1,
+      "predicted": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 11,
+      "seconds": 4.5896,
+      "static_found": 1,
+      "enriched": 1,
+      "specific": 1,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "none_comparison",
+      "kind": "static",
+      "note": "identity vs equality",
+      "expected": 2,
+      "predicted": 2,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 14,
+      "seconds": 7.8407,
+      "static_found": 2,
+      "enriched": 2,
+      "specific": 2,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "mutation_while_iterating",
+      "kind": "static",
+      "note": "container modified mid-loop",
+      "expected": 1,
+      "predicted": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 10,
+      "seconds": 4.8791,
+      "static_found": 1,
+      "enriched": 1,
+      "specific": 1,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "duplicate_dict_key",
+      "kind": "static",
+      "note": "silently lost value",
+      "expected": 1,
+      "predicted": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 8,
+      "seconds": 4.2904,
+      "static_found": 1,
+      "enriched": 1,
+      "specific": 1,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "inconsistent_return",
+      "kind": "static",
+      "note": "sometimes returns None",
+      "expected": 1,
+      "predicted": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 9,
+      "seconds": 4.5675,
+      "static_found": 1,
+      "enriched": 1,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "float_equality",
+      "kind": "static",
+      "note": "exact float compare",
+      "expected": 1,
+      "predicted": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 7,
+      "seconds": 4.3883,
+      "static_found": 1,
+      "enriched": 1,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "return_in_finally",
+      "kind": "static",
+      "note": "exception swallowed",
+      "expected": 1,
+      "predicted": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 12,
+      "seconds": 5.2417,
+      "static_found": 1,
+      "enriched": 1,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "unreachable_code",
+      "kind": "static",
+      "note": "dead statements",
+      "expected": 1,
+      "predicted": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 10,
+      "seconds": 4.4632,
+      "static_found": 1,
+      "enriched": 0,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": [
+        "Could not parse model output for lines 1-10; static findings kept as-is"
+      ]
+    },
+    {
+      "name": "assert_tuple",
+      "kind": "static",
+      "note": "always-true assert",
+      "expected": 1,
+      "predicted": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 8,
+      "seconds": 5.0947,
+      "static_found": 1,
+      "enriched": 1,
+      "specific": 1,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "unused_import_and_var",
+      "kind": "static",
+      "note": "dead names",
+      "expected": 2,
+      "predicted": 2,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 11,
+      "seconds": 8.1301,
+      "static_found": 2,
+      "enriched": 2,
+      "specific": 2,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "complex_function",
+      "kind": "static",
+      "note": "high branching",
+      "expected": 1,
+      "predicted": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 26,
+      "seconds": 4.5253,
+      "static_found": 1,
+      "enriched": 1,
+      "specific": 1,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "off_by_one_sum",
+      "kind": "llm",
+      "note": "loop skips the first price",
+      "expected": 1,
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 10,
+      "seconds": 1.2489,
+      "static_found": 0,
+      "enriched": 0,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [
+        {
+          "line": 7,
+          "category": "bug"
+        }
+      ],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "wrong_boundary",
+      "kind": "llm",
+      "note": "> where >= was meant",
+      "expected": 1,
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 7,
+      "seconds": 1.1618,
+      "static_found": 0,
+      "enriched": 0,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [
+        {
+          "line": 6,
+          "category": "bug"
+        }
+      ],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "empty_average",
+      "kind": "llm",
+      "note": "divides by zero on an empty list",
+      "expected": 1,
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 7,
+      "seconds": 1.2153,
+      "static_found": 0,
+      "enriched": 0,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [
+        {
+          "line": 6,
+          "category": "bug"
+        }
+      ],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "unclosed_file",
+      "kind": "llm",
+      "note": "file handle is never closed",
+      "expected": 1,
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 9,
+      "seconds": 1.1347,
+      "static_found": 0,
+      "enriched": 0,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [
+        {
+          "line": 6,
+          "category": "bug"
+        }
+      ],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "sign_of_zero",
+      "kind": "llm",
+      "note": "zero is treated as negative",
+      "expected": 1,
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 9,
+      "seconds": 1.1966,
+      "static_found": 0,
+      "enriched": 0,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [
+        {
+          "line": 8,
+          "category": "bug"
+        }
+      ],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "early_return_search",
+      "kind": "llm",
+      "note": "gives up after the first user",
+      "expected": 1,
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 10,
+      "seconds": 1.211,
+      "static_found": 0,
+      "enriched": 0,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [
+        {
+          "line": 9,
+          "category": "bug"
+        }
+      ],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "swapped_transfer",
+      "kind": "llm",
+      "note": "money moves the wrong way",
+      "expected": 1,
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 8,
+      "seconds": 1.2663,
+      "static_found": 0,
+      "enriched": 0,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [
+        {
+          "line": 6,
+          "category": "bug"
+        }
+      ],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "missing_increment",
+      "kind": "llm",
+      "note": "the loop never ends",
+      "expected": 1,
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 11,
+      "seconds": 1.2702,
+      "static_found": 0,
+      "enriched": 0,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [
+        {
+          "line": 8,
+          "category": "bug"
+        }
+      ],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "floor_division_share",
+      "kind": "llm",
+      "note": "// drops the paise",
+      "expected": 1,
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 7,
+      "seconds": 1.177,
+      "static_found": 0,
+      "enriched": 0,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [
+        {
+          "line": 6,
+          "category": "bug"
+        }
+      ],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "latest_zero",
+      "kind": "llm",
+      "note": "n == 0 returns every post",
+      "expected": 1,
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 7,
+      "seconds": 1.1725,
+      "static_found": 0,
+      "enriched": 0,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [
+        {
+          "line": 6,
+          "category": "bug"
+        }
+      ],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "clean_simple",
+      "kind": "static",
+      "note": "negative control",
+      "expected": 0,
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 12,
+      "seconds": 1.2212,
+      "static_found": 0,
+      "enriched": 0,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "clean_class",
+      "kind": "static",
+      "note": "negative control",
+      "expected": 0,
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 24,
+      "seconds": 1.2634,
+      "static_found": 0,
+      "enriched": 0,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "clean_safe_db",
+      "kind": "static",
+      "note": "negative control, parameterised SQL",
+      "expected": 0,
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 14,
+      "seconds": 1.2013,
+      "static_found": 0,
+      "enriched": 0,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "broken_syntax",
+      "kind": "static",
+      "note": "must degrade gracefully, not crash",
+      "expected": 0,
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 6,
+      "seconds": 0.0001,
+      "static_found": 0,
+      "enriched": 0,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": [
+        "line 4: '(' was never closed",
+        "LLM stage skipped: the file does not parse"
+      ]
+    },
+    {
+      "name": "empty_file",
+      "kind": "static",
+      "note": "edge case",
+      "expected": 0,
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 1,
+      "seconds": 1.1921,
+      "static_found": 0,
+      "enriched": 0,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    },
+    {
+      "name": "comments_only",
+      "kind": "static",
+      "note": "edge case",
+      "expected": 0,
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "categories": {
+        "bug": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "security": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "style": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "optimization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "lines": 3,
+      "seconds": 1.1615,
+      "static_found": 0,
+      "enriched": 0,
+      "specific": 0,
+      "llm_candidates": [],
+      "llm_found": 0,
+      "llm_wrong": 0,
+      "llm_misdiagnosed": 0,
+      "missed": [],
+      "false_positives": [],
+      "errors": []
+    }
+  ]
+}

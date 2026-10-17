@@ -1,0 +1,47 @@
+{
+  "paths": [
+    "/usr/lib/python3.13"
+  ],
+  "workers": 4,
+  "files_scanned": 599,
+  "files_failed": 0,
+  "failures": [],
+  "total_lines": 302717,
+  "total_findings": 5624,
+  "findings_per_100_lines": 1.86,
+  "serious_per_100_lines": 0.064,
+  "by_category": {
+    "style": 4901,
+    "bug": 369,
+    "security": 235,
+    "optimization": 119
+  },
+  "by_severity": {
+    "critical": 55,
+    "high": 138,
+    "medium": 1704,
+    "low": 2343,
+    "info": 1384
+  },
+  "top_rules": {
+    "Y003": 908,
+    "Y004": 905,
+    "Y007": 782,
+    "Y014": 605,
+    "Y005": 310,
+    "Y011": 233,
+    "Y020": 220,
+    "Y008": 206,
+    "Y001": 180,
+    "S013": 149,
+    "Y013": 143,
+    "B005": 121,
+    "Y002": 105,
+    "Y006": 99,
+    "B001": 77
+  },
+  "wall_seconds": 13.934,
+  "busy_seconds": 48.075,
+  "lines_per_second": 21726.0,
+  "mean_file_seconds": 0.0803
+}
